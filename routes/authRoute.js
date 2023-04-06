@@ -3,7 +3,6 @@ import { crearUsuario, loginUsuario, renovarToken } from "../controllers/authCon
 import { check } from 'express-validator';
 import { validarCampos } from "../middlewares/validar-campos.js";
 import { validarJWT } from "../middlewares/validar-jwt.js";
-//import { emailValido } from "../helpers/validacionesDB.js";
 
 
 const authRoute = Router();

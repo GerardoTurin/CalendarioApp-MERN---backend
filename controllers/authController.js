@@ -2,6 +2,7 @@ import { response, request } from 'express';
 import UsuarioModel from '../models/UsuarioModel.js';
 import bcryptjs from 'bcryptjs'; // Encriptar contraseñas
 import { generarJWT } from '../helpers/jwt.js';
+import { emailYaRegistrado } from '../helpers/validacionesDB.js';
 
 
 
@@ -17,8 +18,19 @@ const crearUsuario = async ( req = request, res = response ) => {
 
 
     try {
-        const usuario = new UsuarioModel({ name, email, password });
-    
+        
+        // Verificar si el email ya está registrado
+        if ( await emailYaRegistrado( email ) ) {
+            return res.status(400).json({
+                ok: false,
+                msg: "El correo ya está registrado",
+            });
+        }
+
+        // Se crea el usuario
+        const usuario = new UsuarioModel({ name, email, password }); //^ Creamos un nuevo usuario con los datos que vienen en el body
+
+
         // Grabar en la base de datos
         await usuario.save();
 

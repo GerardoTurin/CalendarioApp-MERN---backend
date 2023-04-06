@@ -2,13 +2,9 @@ import UsuarioModel from "../models/UsuarioModel.js";
 
 
 
-
-const emailValido = async ( email = '' ) => {
-
-    const emailExiste = await UsuarioModel.findOne({ email });
-    if ( emailExiste ) {
-        throw new Error(` El email ${email} ya está registrado`);
-    };
+const emailYaRegistrado = async ( email ) => {
+    const emailExiste = UsuarioModel.findOne({ email });
+    return !!emailExiste;   //^ Si el email existe, devuelve true. Si no existe, devuelve false
 };
 
 
@@ -21,5 +17,5 @@ const emailValido = async ( email = '' ) => {
 
 
 export { 
-    emailValido,
+    emailYaRegistrado
 };
