@@ -119,6 +119,8 @@ const renovarToken = async ( req = request, res = response ) => {
     res.json({
         ok: true,
         msg: "Token renovado",
+        uid,
+        name,
         token
     });
 };
