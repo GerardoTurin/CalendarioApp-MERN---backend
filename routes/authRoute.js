@@ -13,8 +13,8 @@ const authRoute = Router();
 
 //~ Middlewares
 
-const validarName = [ check('name', 'El nombre es obligatorio').not().isEmpty() ];  
-const validarEmail = [ check('email', 'El correo es obligatorio').isEmail() ];
+const validarName = [ check('name', 'El nombre es obligatorio').not().isEmpty() ];  //^ El nombre no puede estar vacío
+const validarEmail = [ check('email', 'El Email es obligatorio').isEmail() ];   //^ El email debe ser un email válido
 const validarPassword = [ check('password', 'La contraseña debe tener un mínimo de 6 caracteres').isLength({ min: 6 }) ];
 
 
