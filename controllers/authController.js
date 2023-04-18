@@ -19,22 +19,6 @@ const crearUsuario = async ( req = request, res = response ) => {
 
     try {
 
-        if ( name.length.trim() < 2 ) {
-            return res.status(400).json({
-                ok: false,
-                msg: "El nombre es obligatorio y debe tener al menos 2 caracteres",
-            });
-        };
-
-
-
-        if ( password.length < 6 ) {
-            return res.status(400).json({
-                ok: false,
-                msg: "El password debe ser de al menos 6 caracteres",
-            });
-        }
-
 
         
         // Verificar si el email ya está registrado

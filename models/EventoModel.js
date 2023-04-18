@@ -32,7 +32,7 @@ const eventoSchema = new Schema({
 
 eventoSchema.method('toJSON', function() {
     const { __v, _id, ...evento } = this.toObject();
-    evento.id = _id;  // Cambiamos el nombre del id por uID
+    evento.id = uid;  // Cambiamos el nombre del id por uID
     return evento;
 });
 
