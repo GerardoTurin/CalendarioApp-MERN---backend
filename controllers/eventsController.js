@@ -82,11 +82,11 @@ const actualizarEvento = async ( req = request, res = response ) => {
             user: req.uid
         }
 
-        const eventoActualizado = await EventoModel.findOneAndUpdate( id, nuevoEvento, { new: true } );
+        const eventoActualizado = await EventoModel.findByIdAndUpdate( id, nuevoEvento, { new: true } );
 
         res.json({
             ok: true,
-            evento: eventoActualizado
+            eventoActualizado
         });
 
     } catch (error) {
