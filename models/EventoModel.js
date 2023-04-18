@@ -31,8 +31,8 @@ const eventoSchema = new Schema({
 
 
 eventoSchema.method('toJSON', function() {
-    const { __v, _id, ...evento } = this.toObject();
-    evento.id = uid;  // Cambiamos el nombre del id por uID
+    const { __v, _id, ...evento } = this.toObject(); //^ Extraemos de la respuesta del evento, el __v y el _id,
+    evento.uid = _id;  // Cambiamos el nombre del id por uID
     return evento;
 });
 
