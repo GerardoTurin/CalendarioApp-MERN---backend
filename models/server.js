@@ -3,7 +3,7 @@ import cors from 'cors';
 import { conectionDB } from '../db/configDB.js';
 import authRoute from '../routes/authRoute.js';
 import eventsRoute from '../routes/eventsRoute.js';
-import path, { dirname } from 'path';
+//import path, { dirname } from 'path';
 
 
 
@@ -52,7 +52,9 @@ class Server {
 
             // Directorio carpeta publica
             //this.app.use(express.static(path.join( dirname, 'public')));   // use: para usar un middleware
-            this.app.use(express.static(path.join( path.dirname(import.meta.url), '/public/index.html')));
+            //this.app.use(express.static(path.join( path.dirname(import.meta.url), '/public/index.html')));
+            this.app.use(express.static('public'));   // use: para usar un middleware
+
 
         };
 
