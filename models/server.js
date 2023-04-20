@@ -3,6 +3,7 @@ import cors from 'cors';
 import { conectionDB } from '../db/configDB.js';
 import authRoute from '../routes/authRoute.js';
 import eventsRoute from '../routes/eventsRoute.js';
+import { publicRoute } from '../routes/publicRoute.js';
 //import path, { dirname } from 'path';
 
 
@@ -64,6 +65,7 @@ class Server {
         routes() {
             this.app.use( this.paths.authPath, authRoute );
             this.app.use( this.paths.eventsPath, eventsRoute );
+            this.app.use( "/", publicRoute );
         };
 
 
